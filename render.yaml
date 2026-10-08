@@ -3,7 +3,7 @@ services:
     name: rangrez-api
     runtime: node
     plan: free
-    rootDir: Sorella-Ristorante/backend
+    rootDir: backend
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/health
@@ -16,9 +16,9 @@ services:
   - type: web
     name: rangrez-web
     runtime: static
-    rootDir: Sorella-Ristorante/frontend
+    rootDir: frontend
     buildCommand: npm install && npm run build
-    staticPublishPath: Sorella-Ristorante/frontend/dist
+    staticPublishPath: frontend/dist
     envVars:
       - key: VITE_API_URL
         fromService:

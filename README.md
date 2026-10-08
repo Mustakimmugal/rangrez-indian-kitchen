@@ -53,4 +53,4 @@ To load the sample menu into a configured MongoDB database, run `npm run seed --
 
 ## Deploy to Render
 
-The `render.yaml` Blueprint in this folder creates the Node API and React static site. In Render, create a Blueprint from the Git repository and set the Blueprint path to `Sorella-Ristorante/render.yaml`. To keep reservations and newsletter signups persistent, add `MONGODB_URI` to the API service in Render and provide a MongoDB Atlas connection string. If it is left unset, the site uses demo mode and submissions are held in memory only.
+The `render.yaml` Blueprint in this folder creates the Node API and React static site. In Render, create a Blueprint from the Git repository and use the repository-root `render.yaml` Blueprint. To keep reservations and newsletter signups persistent, add `MONGODB_URI` to the API service in Render and provide a MongoDB Atlas connection string. If it is left unset, the site uses demo mode and submissions are held in memory only.

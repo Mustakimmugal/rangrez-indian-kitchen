@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: rangrez-api
+    runtime: node
+    plan: free
+    rootDir: Sorella-Ristorante/backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        value: '*'
+
+  - type: web
+    name: rangrez-web
+    runtime: static
+    rootDir: Sorella-Ristorante/frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: Sorella-Ristorante/frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: rangrez-api
+          envVarKey: RENDER_EXTERNAL_URL
